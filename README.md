@@ -17,17 +17,20 @@ D 	$.15
 
 
 There should be a top level point of sale terminal object that looks something like the psuedo-code below:
-
+```js
 terminal.setPricing(...)
 terminal.scan('A')
 terminal.scan('C')
 ...etc.
 var result = terminal.total()
+```
 
 You are free to design the code however you wish, including how you specifying pricing in the system.
 
 Here are the minimal inputs you should use for your test cases. These test cases must be show to work in your program:
 
 Scan these items in this order: ABCDABAA — total is $32.40
+
 Scan these items in this order: CCCCCCC — total is $7.25
+
 Scan these items in this order: ABCD — total is $15.40
