@@ -56,26 +56,39 @@ describe("Terminal", function() {
   });
 
   describe("#total", function() {
+    var testCaseString, testCasePrice;
     beforeEach(function() {
+      terminal.scannedItems = {};
       terminal.setPricing(item_source_data);
     });
 
-    var testCases = {
-      "ABCDABAA": 32.40,
-      "CCCCCCC": 7.25,
-      "ABCD": 15.40
-    };
-    var testCaseStrings = Object.keys(testCases);
+    describe("for scanning 'ABCDABAA'", function() {
+      it("returns 32.40", function() {
+        testCaseString = "ABCDABAA";
+        testCasePrice = 32.40;
 
-    for(var i = 0; i < testCaseStrings.length; i++) {
-      var currentItemString = testCaseStrings[i];
-      var currentItemPrice = testCases[currentItemString]
+        specHelper.processStringScans(testCaseString, terminal);
+        expect(terminal.total()).toEqual(testCasePrice)
+      });
+    });
 
-      it("returns the correct total for scanning: " + currentItemString, function () {
-        console.log("scanning test: " + currentItemString)
-        specHelper.processStringScans(currentItemString, terminal);
-        expect(terminal.total()).toEqual(currentItemPrice);
-      })
-    }
+    describe("for scanning 'CCCCCCC'", function() {
+      it("returns 7.25", function() {
+        testCaseString = "CCCCCCC";
+        testCasePrice = 7.25;
+
+        specHelper.processStringScans(testCaseString, terminal);
+        expect(terminal.total()).toEqual(testCasePrice)
+      });
+    });
+
+    describe("for scanning 'ABCD'", function() {
+      it("returns 15.40", function() {
+        testCaseString = "ABCD";
+        testCasePrice = 15.40;
+        specHelper.processStringScans(testCaseString, terminal);
+        expect(terminal.total()).toEqual(testCasePrice)
+      });
+    });
   });
 });

@@ -5,16 +5,25 @@ function Terminal(itemParser) {
 }
 
 Terminal.prototype.setPricing = function(itemSourceData) {
-  this.registeredItems = this.registeredItems.concat(this.itemParser.parse(itemSourceData));
+  this.registeredItems = this.itemParser.parse(itemSourceData);
 };
 
 Terminal.prototype.scan = function(itemName) {
   var item = this.__getRegisteredItem(itemName);
   if(item == undefined) {  throw new Error("ItemNotFound") };
+
   return this.__addToScannedItems(item) && true;
 };
 
 Terminal.prototype.total = function() {
+  var total = 0;
+  var scannedItems = this.scannedItems;
+  for(itemName in scannedItems) {
+    item = this.__getRegisteredItem(itemName);
+    quantity = this.scannedItems[itemName];
+    total += item.total(quantity);
+  }
+  return total;
 }
 
 
