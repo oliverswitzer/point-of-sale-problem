@@ -5,23 +5,23 @@ describe("ItemParser", function() {
   var item;
 
   beforeEach(function() {
-    itemParser = new ItemParser
+    itemConstructor = Item
+    itemParser = new ItemParser(itemConstructor);
     itemSourceData = {
       "A": [
         { quantity: 1, price: 2.0 },
         { quantity: 4, price: 7.0 }
       ]
     }
-    itemConstructor = Item
     item = new Item("A", itemSourceData["A"])
   });
 
   describe("#parse", function() {
     it("returns an array", function() {
-      expect(itemParser.parse(itemSourceData, itemConstructor).constructor).toEqual(Array)
+      expect(itemParser.parse(itemSourceData).constructor).toEqual(Array)
     })
     it("returns an array of one Item object", function() {
-      expect(itemParser.parse(itemSourceData, itemConstructor)).toEqual([item]);
+      expect(itemParser.parse(itemSourceData)).toEqual([item]);
     })
     it("does not create items with no volume prices specified", function() {
       itemSourceData = {
@@ -32,7 +32,7 @@ describe("ItemParser", function() {
         "B": []
       };
 
-      expect(itemParser.parse(itemSourceData, itemConstructor)).toEqual([item]);
+      expect(itemParser.parse(itemSourceData)).toEqual([item]);
     })
   });
 });

@@ -30,10 +30,10 @@ describe("Item", function() {
   });
 
   describe("#total", function() {
-    it("returns the total for an item with no bulk prices given a quantity", function() {
+    it("returns the correct total for an item with no bulk prices", function() {
       expect(item.total(2)).toEqual(4.0)
     });
-    it("returns the total for an item with bulk prices given a quantity", function() {
+    it("returns the correct total for an item with bulk prices", function() {
       expect(bulkItem.total(3)).toEqual(5.0)
     });
   })
