@@ -9,9 +9,9 @@ describe("Terminal", function() {
         { quantity: 1, price: 2.0 },
         { quantity: 4, price: 7.0 }
       ]
-    }
+    };
     item = new Item("A", itemSourceData["A"])
-  })
+  });
 
   describe("#setPricing", function() {
     it("calls parse on the passed in item parser", function() {
@@ -43,7 +43,7 @@ describe("Terminal", function() {
         terminal.scan("A");
         expect(terminal.scannedItems).toEqual({ "A": 1 })
       });
-    })
+    });
 
     describe("if the item has been scanned before", function() {
       it("increments the item quantity in the scannedItems object", function() {

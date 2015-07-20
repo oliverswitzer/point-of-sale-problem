@@ -1,23 +1,23 @@
 describe("Item", function() {
   var item;
-  var bulkItem
+  var bulkItem;
 
   beforeEach(function() {
-    item = new Item()
+    item = new Item();
     item.volume_prices.push({
       quantity: 1,
-      price: 2.0,
-    })
+      price: 2.0
+    });
 
-    bulkItem = new Item()
+    bulkItem = new Item();
     bulkItem.volume_prices.push({
       quantity: 1,
-      price: 2.0,
-    })
+      price: 2.0
+    });
     bulkItem.volume_prices.push({
       quantity: 2,
-      price: 3.0,
-    })
+      price: 3.0
+    });
   });
 
   describe("#isBulkItem", function() {

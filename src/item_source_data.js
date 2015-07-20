@@ -13,4 +13,4 @@ var item_source_data = {
     "D": [
       { quantity: 1, price: 0.15 }
     ]
-  }
+  };

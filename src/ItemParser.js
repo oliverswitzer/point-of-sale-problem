@@ -14,4 +14,4 @@ ItemParser.prototype.parse = function(itemSourceData) {
   }
 
   return this.items
-}
+};
