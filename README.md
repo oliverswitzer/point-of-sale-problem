@@ -1,3 +1,7 @@
+To run specs: open SpecRunner.html in your browser
+
+Terminal test are under the "Terminal" spec. To run only these specs open `localhost:<port>/point-of-sale-problem/SpecRunner.html?spec=Terminal`
+
 # point-of-sale-problem
 coding assignment to create point of sale API
 
